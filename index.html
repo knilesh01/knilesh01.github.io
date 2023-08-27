@@ -1,19 +1,50 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Home</title>
-        <style>
-            body {
-                margin: 0;
-                padding: 0;
-                background-image: url('abstractPurple.jpg');
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
-                height: 100vh; /* Set the height of the body to full viewport height */
-            }
-        </style>
-    </head>
-    <body background="abstractPurple.jpg">
+<head>
+    <title>Home</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('abstractPurple.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #text-container {
+            text-align: center;
+        }
 
-    </body>
+        #typing-text {
+            color: white; /* Change text color to white */
+        }
+    </style>
+</head>
+<body>
+    <div id="text-container">
+        <h1 id="typing-text"></h1>
+    </div>
+
+    <script>
+        const textElement = document.getElementById('typing-text');
+        const text = 'Welcome to My Website!'; // Text to be typed
+        let index = 0;
+
+        function typeText() {
+            textElement.textContent = text.slice(0, index);
+            index++;
+
+            if (index <= text.length) {
+                setTimeout(typeText, 100); // Typing speed (milliseconds)
+            }
+        }
+
+        typeText();
+    </script>
+</body>
 </html>
